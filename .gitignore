@@ -1,0 +1,5 @@
+bochslog.txt
+/iso/boot/kernel.elf
+kernel.elf
+*.o
+*.iso
