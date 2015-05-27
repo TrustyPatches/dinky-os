@@ -1,5 +1,12 @@
 #include "tty.h"
 #include "vga.h"
+#include "descriptor-tables.h"
+
+void kinit() {
+  descriptor_tables_init();
+
+  term_init();
+}
 
 void kmain() {
   term_init();
