@@ -1,4 +1,4 @@
-OBJECTS = loader.o kmain.o framebuffer.o serial.o
+OBJECTS = loader.o kmain.o vga.o serial.o port-io.o
 CC = gcc
 CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector \
 -nostartfiles -nodefaultlibs -Wall -Wextra -Werror -c
