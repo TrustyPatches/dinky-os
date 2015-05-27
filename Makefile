@@ -1,8 +1,8 @@
-OBJECTS = boot.o port-io.o vga.o serial.o kmain.o
+OBJECTS = boot.o port-io.o vga.o tty.o serial.o kmain.o
 CC = ~/opt/cross/bin/i686-elf-gcc
 #CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector \
 -nostartfiles -nodefaultlibs -Wall -Wextra -Werror -c
-CFLAGS = -ffreestanding -nostdlib -lgcc -fno-stack-protector -Wall -Wextra -Werror -c
+CFLAGS = -ffreestanding -nostdlib -lgcc -fno-stack-protector -Wall -Wextra -c
 LDFLAGS = -T linker.ld -melf_i386
 AS = nasm
 ASFLAGS = -felf32

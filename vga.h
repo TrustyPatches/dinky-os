@@ -34,8 +34,8 @@ enum vga_colour {
   VG_WHITE = 15
 };
 
-uint8_t make_colour(enum vga_colour fg, enum vga_colour bg);
-uint16_t make_vga_cell(char c, uint8_t colour);
+uint8_t vga_make_colour(enum vga_colour fg, enum vga_colour bg);
+uint16_t vga_make_cell(char c, uint8_t colour);
 void vga_move_cursor(unsigned short pos);
 
 #endif
