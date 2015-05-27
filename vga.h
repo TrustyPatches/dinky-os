@@ -37,5 +37,6 @@ enum vga_colour {
 uint8_t vga_make_colour(enum vga_colour fg, enum vga_colour bg);
 uint16_t vga_make_cell(char c, uint8_t colour);
 void vga_move_cursor(unsigned short pos);
+void vga_set_cursor(size_t x, size_t y);
 
 #endif

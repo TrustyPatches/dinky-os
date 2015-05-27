@@ -11,8 +11,8 @@ uint16_t vga_make_cell(char c, uint8_t colour) {
   return colour16 << 8 | char16;
 }
 
-void vga_update_cursor(int y, int x) {
-  size_t position = y * VGA_WIDTH + x;
+void vga_set_cursor(size_t x, size_t y) {
+  size_t position = (y * VGA_WIDTH) + x;
   vga_move_cursor(position);
 }
 

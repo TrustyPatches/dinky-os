@@ -1,11 +1,10 @@
 #include "tty.h"
+#include "vga.h"
 
 void kmain() {
   term_init();
-  term_putchar('H');
-  term_putchar('e');
-  term_putchar('l');
-  term_putchar('l');
-  term_putchar('o');
-  term_putchar('!');
+  term_print("\n\t\t\t     ====================");
+  term_print("\n\t\t\t     Welcome to Dinky-OS!");
+  term_print("\n\t\t\t     ====================\n\n");
+  term_print("Under construction...");
 }
