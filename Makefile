@@ -1,10 +1,11 @@
-OBJECTS = loader.o kmain.o vga.o serial.o port-io.o
-CC = gcc
-CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector \
+OBJECTS = boot.o port-io.o vga.o serial.o kmain.o
+CC = ~/opt/cross/bin/i686-elf-gcc
+#CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector \
 -nostartfiles -nodefaultlibs -Wall -Wextra -Werror -c
-LDFLAGS = -T link.ld -melf_i386
+CFLAGS = -ffreestanding -nostdlib -lgcc -fno-stack-protector -Wall -Wextra -Werror -c
+LDFLAGS = -T linker.ld -melf_i386
 AS = nasm
-ASFLAGS = -f elf
+ASFLAGS = -felf32
 
 all: kernel.elf
 
