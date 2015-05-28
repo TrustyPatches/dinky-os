@@ -1,4 +1,4 @@
-OBJECTS = boot.o descriptor-tables.o gdt_flush.o port-io.o vga.o tty.o serial.o kmain.o 
+OBJECTS = boot.o descriptor-tables.o dt_flush.o port-io.o vga.o tty.o serial.o kmain.o 
 CC = ~/opt/cross/bin/i686-elf-gcc
 #CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector \
 -nostartfiles -nodefaultlibs -Wall -Wextra -Werror -c
