@@ -35,6 +35,12 @@ static void idt_init() {
   idt_ptr.limit = sizeof(idt_entry_t) * 256 - 1;
   idt_ptr.base = (uint32_t)&idt_entries;
 
+  uint64_t *ptr = (uint64_t)&idt_entries;
+
+  for (int i = 0; i < 256; ++i) {
+    ptr[i] = 0;
+  }
+
   idt_set_gate(0, (uint32_t)isr0, 0x08, 0x8E);
   idt_set_gate(1, (uint32_t)isr1, 0x08, 0x8E);
   idt_set_gate(2, (uint32_t)isr2, 0x08, 0x8E);
@@ -67,6 +73,8 @@ static void idt_init() {
   idt_set_gate(29, (uint32_t)isr29, 0x08, 0x8E);
   idt_set_gate(30, (uint32_t)isr30, 0x08, 0x8E);
   idt_set_gate(31, (uint32_t)isr31, 0x08, 0x8E);
+
+  idt_flush((uint32_t)&idt_ptr);
 }
 
 // Shifting and masking foo courtesy of James Molloy
@@ -75,7 +83,7 @@ static void gdt_set_gate(uint32_t num, uint32_t base, uint32_t limit, uint8_t ac
   gdt_entries[num].base_mid = (base >> 16) & 0xFF;
   gdt_entries[num].base_high = (base >> 24) & 0xFF;
   gdt_entries[num].limit_low = (limit & 0xFFFF);
-  gdt_entries[num].flags = (limit >> 16) % 0x0F;
+  gdt_entries[num].flags = (limit >> 16) & 0x0F;
   gdt_entries[num].flags |= flags & 0xF0;
   gdt_entries[num].access = access;
 }
